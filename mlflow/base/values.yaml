@@ -13,3 +13,13 @@ ingress:
     - mlflow.localhost
     secretName: mlflow-selfsigned-cert
 
+backendStore:
+  databaseMigration: false
+  databaseConnectionCheck: false
+  postgres:
+    enabled: true
+    host: postgresql
+    port: 5432
+    database: "mlflow"
+    user: "postgres"
+    password: "password"

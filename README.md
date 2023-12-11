@@ -23,7 +23,7 @@ kubectl apply -k argo-apps/overlays/test/
 ```
 wait till essential apps(argocd, argo-apps, ingress-nginx, cert-manager, sealed-secrets) are `Healthy`:
 ```
-kubectl get applications -A
+watch kubectl get applications -A
 ```
 
 ### Forward nginx-ingress

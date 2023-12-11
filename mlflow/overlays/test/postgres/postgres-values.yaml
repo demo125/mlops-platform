@@ -1,0 +1,9 @@
+auth:
+  existingSecret: mlflow-postgresql-secret
+  database: mlflow
+  username: mlflow
+
+primary:
+  persistence:
+    enabled: true
+    existingClaim: mlflow-postgresql-pvc

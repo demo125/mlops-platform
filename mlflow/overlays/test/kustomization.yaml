@@ -5,3 +5,11 @@ resources:
 - ../../base/
 - certificate.yaml
 - issuer.yaml
+- postgres/sealed-postgres-secret.yaml
+- postgres/volumes.yaml
+helmCharts:
+- name: postgresql
+  repo: https://charts.bitnami.com/bitnami
+  version: 13.2.24
+  releaseName: postgresql
+  valuesFile: postgres/postgres-values.yaml
