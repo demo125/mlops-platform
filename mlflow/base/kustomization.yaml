@@ -7,3 +7,4 @@ helmCharts:
   repo: https://community-charts.github.io/helm-charts
   releaseName: mlflow
   valuesFile: values.yaml
+  includeCRDs: true
