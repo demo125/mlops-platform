@@ -1,11 +1,20 @@
-project: default
-source:
-  repoURL: 'https://github.com/demo125/mlops-platform.git'
-  path: argo-apps/overlays/test
-  targetRevision: HEAD
-destination:
-  server: 'https://kubernetes.default.svc'
-  namespace: argocd
-syncPolicy:
-  syncOptions:
-  - PruneLast=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argoapps
+spec:
+  destination:
+    namespace: argocd
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: argo-apps/overlays/test
+    repoURL: 'https://github.com/demo125/mlops-platform.git'
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+    - PruneLast=true
