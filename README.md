@@ -1,34 +1,82 @@
-# mlops-platform
+# Deployment
+### Create .env
+eg:
+```
+CLUSTER_NAME="mlops-platform"
+NUM_WORKERS=1
+VOLUME_PATH_AGENT_0=$(pwd)/volume
+```
+### Run k3d cluster
 
-# Dev
-Deploy chart manualy:
 ```
-kubectl kustomize . --enable-helm | kubectl apply  -f -
+./create_k3d_cluster.sh
+```
+### Run argocd
+```
+kubectl apply -k argocd/overlays/test/
+```
+May throw errors related to cert-manager
+
+### Run argoapps
+```
+kubectl apply -k argo-apps/overlays/test/
+```
+wait till essential apps(argocd, argo-apps, ingress-nginx, cert-manager, sealed-secrets) are `Healthy`:
+```
+kubectl get applications -A
 ```
 
-method 1 - expose dashboard svc
+### Forward nginx-ingress
 ```
-kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard 8001:443
+kubectl -n ingress-nginx --address 0.0.0.0 port-forward svc/ingress-nginx-controller 11443:443
 ```
-available at https://localhost:8001/
+access apps on *.localhost eg:
+- argocd.localhost
+- dashboard.localhost
+- mlflow.localhost
+When cluster is on remote server, portforward servers localhost to local-workstation's localhost:
+run on local-workstation:
+```
+ssh -L localhost:11443:localhost:11443 mde@192.168.2.150
+```
 
-method 2 - expose ingress
-expose 
+### Get argo webui password
+- go to argocd.localhost
+- username is admin
+- password:
 ```
-kubectl -n ingress-nginx port-forward svc/ingress-nginx-controller 8001:443
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
-available later at https://dashboard.localhost:8001/
-then
+
+### Kubernetes dashboard
+- go to dashboard.localhost
+- create access token:
 ```
-local pc:
-ssh -L localhost:8001:localhost:8001 mde@192.168.2.150
+./kubernetes-dashboard/overlays/test/get-token.sh 
 ```
-then
+or directly:
 ```
 kubectl -n kubernetes-dashboard create token admin-user
 ```
+- put the token to login form
+- you can find password to other apps in the dashboard
 
+# Deleting cluster
+```
+./delete_k3d_cluster.sh
+```
+# Helpers
+
+### kustomization/helmcharts
+deploying helm-chart using kustimize:
+```
+kubectl kustomize . --enable-helm | kubectl apply  -f -
+```
+### creating sealed secrets:
+install kubeseal cli:
+```
+./install_kubeseal.sh
+```
 ```
 kubeseal --scope namespace-wide --controller-name sealed-secrets --controller-namespace=sealed-secrets -f secret.yaml -w sealed-secret.yaml -n ods
-
 ```
