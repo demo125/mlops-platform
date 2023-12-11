@@ -5,7 +5,7 @@ resources:
 - ../../base/
 - certificate.yaml
 - issuer.yaml
-- secret.yaml
+- sealed-secret.yaml
 - postgres/sealed-postgres-secret.yaml
 - postgres/volumes.yaml
 - minio/sealed-secret.yaml
