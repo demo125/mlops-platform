@@ -1,0 +1,1 @@
+kubectl apply -f cert-manager.yaml

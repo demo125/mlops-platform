@@ -1,0 +1,4 @@
+---
+# TODO: posudit rotaciu klucov pre sifrovanie
+# @param keyrenewperiod Specifies key renewal period. Default 30 days
+keyrenewperiod: 0s

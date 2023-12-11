@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- namespace.yaml
+helmCharts:
+- name: mlflow
+  repo: https://community-charts.github.io/helm-charts
+  releaseName: mlflow
+  valuesFile: values.yaml
