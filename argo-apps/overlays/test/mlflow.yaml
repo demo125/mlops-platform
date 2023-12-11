@@ -1,11 +1,21 @@
-project: default
-source:
-  repoURL: 'https://github.com/demo125/mlops-platform.git'
-  path: mlflow/overlays/test
-  targetRevision: HEAD
-destination:
-  server: 'https://kubernetes.default.svc'
-  namespace: mlflow
-syncPolicy:
-  syncOptions:
-  - PruneLast=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mlflow
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    namespace: mlflow
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://github.com/demo125/mlops-platform.git'
+    path: mlflow/overlays/test
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - PruneLast=true
