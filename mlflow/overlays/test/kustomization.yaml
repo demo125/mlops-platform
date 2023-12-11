@@ -3,6 +3,5 @@ kind: Kustomization
 namespace: mlflow
 resources:
 - ../../base/
-# - ingress.yaml
 - certificate.yaml
 - issuer.yaml
