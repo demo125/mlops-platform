@@ -4,6 +4,7 @@ metadata:
   name: kubernetes-dashboard
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    certmanager.k8s.io/cluster-issuer: dashboard-issuer
 spec:
   ingressClassName: nginx
   rules:
