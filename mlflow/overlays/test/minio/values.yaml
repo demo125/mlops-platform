@@ -1,0 +1,19 @@
+auth:
+  rootUser: admin
+  existingSecret: mlflow-minio-secret
+
+persistence:
+  enabled: true
+  existingClaim: mlflow-minio-pvc
+
+ingress:
+  enabled: true
+  ingressClassName: "nginx"
+  hostname: mlflow-minio.localhost
+  path: /
+  pathType: Prefix
+  tls: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: mlflow-minio-issuer
+

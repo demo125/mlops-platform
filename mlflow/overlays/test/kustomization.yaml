@@ -5,11 +5,19 @@ resources:
 - ../../base/
 - certificate.yaml
 - issuer.yaml
+- secret.yaml
 - postgres/sealed-postgres-secret.yaml
 - postgres/volumes.yaml
+- minio/sealed-secret.yaml
+- minio/issuer.yaml
+- minio/volumes.yaml
 helmCharts:
 - name: postgresql
   repo: https://charts.bitnami.com/bitnami
   version: 13.2.24
   releaseName: postgresql
-  valuesFile: postgres/postgres-values.yaml
+  valuesFile: postgres/values.yaml
+- name: minio
+  repo: https://charts.bitnami.com/bitnami
+  releaseName: minio
+  valuesFile: minio/values.yaml

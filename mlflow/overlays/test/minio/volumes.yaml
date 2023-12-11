@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mlflow-minio-pv
+  labels:
+    name: mlflow-minio-pv
+spec:
+  capacity:
+    storage: 30Gi
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: standard
+  hostPath:
+    path: /volume-data/mlflow/minio
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: mlflow
+    name: mlflow-minio-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mlflow-minio-pvc
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: standard
+  resources:
+    requests:
+      storage: 3Gi
+  selector:
+    matchLabels:
+      name: mlflow-minio-pv
