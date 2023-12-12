@@ -6,7 +6,7 @@ resources:
 - certificate.yaml
 - issuer.yaml
 - sealed-secret.yaml
-- postgres/sealed-postgres-secret.yaml
+- postgres/sealed-secret.yaml
 - postgres/volumes.yaml
 - minio/sealed-secret.yaml
 - minio/issuer.yaml
