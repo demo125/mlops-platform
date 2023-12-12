@@ -1,0 +1,26 @@
+service:
+  name: registry
+ingress:
+  enabled: true
+  className: nginx
+  path: /
+  hosts:
+  - docker-registry.localhost
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+  tls:
+  - secretName: docker-registry-selfsigned-cert
+    hosts:
+    - docker-registry.localhost
+
+persistence:
+  existingClaim: docker-registry-pvc
+  accessMode: 'ReadWriteOnce'
+  enabled: true
+  size: 100Gi
+storage: filesystem
+
+secrets:
+  #htpasswd -Bc ./htpasswrd <user_name> then copy the contents of htpasswrd file
+  htpasswd: "admin:$2y$05$GuqDLRi/t2rPqiKxdPUG5.W1PX7wsJCpT1VV.88JrqY7Rbd5rB.Wm"

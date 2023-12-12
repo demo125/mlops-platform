@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: docker-registry
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    namespace: docker-registry
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://github.com/demo125/mlops-platform.git'
+    path: docker-registry/overlays/test
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - PruneLast=true

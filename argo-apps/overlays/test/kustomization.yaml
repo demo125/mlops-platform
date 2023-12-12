@@ -8,3 +8,4 @@ resources:
 - apps/kubernetes-dashboard.yaml
 - apps/mlflow.yaml
 - apps/sealed-secrets.yaml
+- apps/docker-registry.yaml
