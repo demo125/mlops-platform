@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- namespace.yaml
+helmCharts:
+- name: prometheus
+  includeCRDs: true
+  namespace: prometheus
+  repo: https://prometheus-community.github.io/helm-charts
+  version: 25.8.0
+  releaseName: prometheus
+  valuesFile: values.yaml

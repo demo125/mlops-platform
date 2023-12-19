@@ -1,0 +1,19 @@
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+    - prometheus.localhost
+    tls:
+    - secretName: prometheus-selfsigned-cert
+      hosts:
+      - prometheus.localhost
+  persistentVolume:
+    enabled: true
+    existingClaim: prometheus-pvc
+  securityContext:
+    fsGroup: 0
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
