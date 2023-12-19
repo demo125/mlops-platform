@@ -1,0 +1,6 @@
+# - op: replace #action 
+#   path: /spec/template/spec/securityContext/runAsUser
+#   value: 1002
+# - op: replace #action 
+#   path: /spec/template/spec/securityContext/fsGroup
+#   value: 1001

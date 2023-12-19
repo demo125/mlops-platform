@@ -10,3 +10,8 @@ helmCharts:
   version: 2.2.2
   releaseName: docker-registry
   valuesFile: values.yaml
+# patches:
+# - target:
+#     kind: Deployment
+#     name: docker-registry
+#   path: security-patch.yaml
