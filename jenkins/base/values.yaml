@@ -1,0 +1,6 @@
+jenkinsPassword: "password"
+service:
+  type: ClusterIP
+persistence:
+  enabled: true
+  existingClaim: jenkins-pvc

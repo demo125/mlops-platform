@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: jenkins-selfsigned-cert
+spec:
+  dnsNames:
+  - jenkins.localhost
+  commonName: "my-selfsigned-cert"
+  secretName: jenkins-selfsigned-cert
+  issuerRef:
+    name: jenkins-issuer
