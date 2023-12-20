@@ -4,7 +4,6 @@ metadata:
   name: argocd
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    cert-manager.io/cluster-issuer: local-rootca
 spec:
   ingressClassName: nginx
   rules:
