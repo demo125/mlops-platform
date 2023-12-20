@@ -10,25 +10,10 @@ spec:
     storage: 30Gi
   accessModes:
   - ReadWriteOnce
-  storageClassName: standard
+  storageClassName: manual
   hostPath:
     path: /volume-data/prometheus
   claimRef:
     kind: PersistentVolumeClaim
     namespace: kube-prometheus-stack
     name: prometheus-kube-prometheus-stack-prometheus-db-prometheus-kube-prometheus-stack-prometheus-0
-# ---
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: prometheus-pvc
-# spec:
-#   accessModes:
-#   - ReadWriteOnce
-#   storageClassName: standard
-#   resources:
-#     requests:
-#       storage: 10Gi
-#   selector:
-#     matchLabels:
-#       name: prometheus-pv
