@@ -18,6 +18,11 @@ prometheus:
       #   runAsNonRoot: false
       #   runAsUser: 0
   prometheusSpec:
+    securityContext:
+      runAsGroup: 1001
+      runAsNonRoot: true
+      runAsUser: 1002
+      fsGroup: 1001
     storageSpec:
       volumeClaimTemplate:
         spec:
