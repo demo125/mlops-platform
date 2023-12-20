@@ -10,7 +10,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: 'https://github.com/demo125/mlops-platform.git'
-    path: prometheus/overlays/test
+    path: prometheus-stack/overlays/test
     targetRevision: HEAD
   syncPolicy:
     automated:

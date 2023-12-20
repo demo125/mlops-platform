@@ -6,7 +6,7 @@ resources:
 - apps/cert-manager.yaml
 - apps/ingress-nginx.yaml
 - apps/jenkins.yaml
-- apps/prometheus.yaml
+- apps/prometheus-stack.yaml
 - apps/kubernetes-dashboard.yaml
 - apps/mlflow.yaml
 - apps/sealed-secrets.yaml
