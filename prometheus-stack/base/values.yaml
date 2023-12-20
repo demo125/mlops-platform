@@ -9,14 +9,6 @@ prometheus:
     - secretName: prometheus-kube-prometheus-stack-selfsigned-cert
       hosts:
       - prometheus.localhost
-      # persistentVolume:
-      #   enabled: true
-      #   existingClaim: prometheus-pvc
-      # securityContext:
-      #   fsGroup: 0
-      #   runAsGroup: 0
-      #   runAsNonRoot: false
-      #   runAsUser: 0
   prometheusSpec:
     securityContext:
       runAsGroup: 1001
@@ -35,6 +27,13 @@ prometheus:
           resources:
             requests:
               storage: 30Gi
+prometheusOperator:
+  admissionWebhooks:
+    patch:
+      securityContext:
+        runAsGroup: 1001
+        runAsNonRoot: true
+        runAsUser: 1002
 
 grafana:
   ingress:
