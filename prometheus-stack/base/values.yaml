@@ -21,12 +21,12 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: standard
           accessModes:
           - ReadWriteOnce
           resources:
             requests:
               storage: 30Gi
+              prometheusSpec:
 grafana:
   ingress:
     enabled: true
