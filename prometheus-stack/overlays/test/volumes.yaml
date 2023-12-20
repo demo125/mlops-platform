@@ -4,6 +4,7 @@ metadata:
   name: prometheus-pv
   labels:
     name: prometheus-pv
+    app.kubernetes.io/name: prometheus-stack-persistence
 spec:
   capacity:
     storage: 10Gi
@@ -16,18 +17,18 @@ spec:
     kind: PersistentVolumeClaim
     namespace: kube-prometheus-stack
     name: prometheus-pvc
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: prometheus-pvc
-spec:
-  accessModes:
-  - ReadWriteOnce
-  storageClassName: standard
-  resources:
-    requests:
-      storage: 10Gi
-  selector:
-    matchLabels:
-      name: prometheus-pv
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: prometheus-pvc
+# spec:
+#   accessModes:
+#   - ReadWriteOnce
+#   storageClassName: standard
+#   resources:
+#     requests:
+#       storage: 10Gi
+#   selector:
+#     matchLabels:
+#       name: prometheus-pv

@@ -20,8 +20,10 @@ prometheus:
   prometheusSpec:
     storageSpec:
       volumeClaimTemplate:
+        selector:
+          matchLabels:
+            app.kubernetes.io/name: prometheus-stack-persistence
         spec:
-          storageClassName: standard
           accessModes:
           - ReadWriteOnce
           resources:
