@@ -21,6 +21,7 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
+          storageClassName: standard
           selector:
             matchLabels:
               app.kubernetes.io/name: prometheus-stack-persistence
