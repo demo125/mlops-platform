@@ -17,7 +17,16 @@ prometheus:
       #   runAsGroup: 0
       #   runAsNonRoot: false
       #   runAsUser: 0
-
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: standard
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: 30Gi
 grafana:
   ingress:
     enabled: true
