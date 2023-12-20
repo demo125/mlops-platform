@@ -78,5 +78,5 @@ install kubeseal cli:
 ./install_kubeseal.sh
 ```
 ```
-kubeseal --scope namespace-wide --controller-name sealed-secrets --controller-namespace=sealed-secrets -f secret.yaml -w sealed-secret.yaml -n ods
+kubeseal --scope namespace-wide --controller-name sealed-secrets --controller-namespace=sealed-secrets -f secret.yaml -w sealed-secret.yaml -n <namespace>
 ```
