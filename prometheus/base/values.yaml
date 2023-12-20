@@ -1,19 +1,38 @@
 
-server:
+prometheus:
   ingress:
     enabled: true
     ingressClassName: nginx
     hosts:
     - prometheus.localhost
     tls:
-    - secretName: prometheus-selfsigned-cert
+    - secretName: prometheus-kube-prometheus-stack-selfsigned-cert
       hosts:
       - prometheus.localhost
-  persistentVolume:
+      # persistentVolume:
+      #   enabled: true
+      #   existingClaim: prometheus-pvc
+      # securityContext:
+      #   fsGroup: 0
+      #   runAsGroup: 0
+      #   runAsNonRoot: false
+      #   runAsUser: 0
+
+grafana:
+  ingress:
     enabled: true
-    existingClaim: prometheus-pvc
-  securityContext:
-    fsGroup: 0
-    runAsGroup: 0
-    runAsNonRoot: false
-    runAsUser: 0
+    ingressClassName: nginx
+    hosts:
+    - grafana.localhost
+    tls:
+    - secretName: grafana-kube-prometheus-stack-selfsigned-cert
+      hosts:
+      - grafana.localhost
+  # persistentVolume:
+  #   enabled: true
+  #   existingClaim: grafana-pvc
+  # securityContext:
+  #   fsGroup: 0
+  #   runAsGroup: 0
+  #   runAsNonRoot: false
+  #   runAsUser: 0

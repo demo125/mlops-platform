@@ -1,11 +1,24 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: prometheus-selfsigned-cert
+  name: grafana-kube-prometheus-stack-selfsigned-cert
+spec:
+  dnsNames:
+  - grafana.localhost
+  commonName: "my-selfsigned-cert"
+  secretName: grafana-kube-prometheus-stack-selfsigned-cert
+  issuerRef:
+    name: kube-prometheus-stack-issuer
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: prometheus-kube-prometheus-stack-selfsigned-cert
 spec:
   dnsNames:
   - prometheus.localhost
   commonName: "my-selfsigned-cert"
-  secretName: prometheus-selfsigned-cert
+  secretName: prometheus-kube-prometheus-stack-selfsigned-cert
   issuerRef:
-    name: prometheus-issuer
+    name: kube-prometheus-stack-issuer
+

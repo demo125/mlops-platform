@@ -3,10 +3,10 @@ kind: Kustomization
 resources:
 - namespace.yaml
 helmCharts:
-- name: prometheus
+- name: kube-prometheus-stack
   includeCRDs: true
-  namespace: prometheus
+  namespace: kube-prometheus-stack
   repo: https://prometheus-community.github.io/helm-charts
-  version: 25.8.0
-  releaseName: prometheus
+  version: 54.0.0
+  releaseName: kube-prometheus-stack
   valuesFile: values.yaml

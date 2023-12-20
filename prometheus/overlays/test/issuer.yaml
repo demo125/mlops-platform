@@ -1,6 +1,6 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: prometheus-issuer
+  name: kube-prometheus-stack-issuer
 spec:
   selfSigned: {}

@@ -14,7 +14,7 @@ spec:
     path: /volume-data/prometheus
   claimRef:
     kind: PersistentVolumeClaim
-    namespace: prometheus
+    namespace: kube-prometheus-stack
     name: prometheus-pvc
 ---
 apiVersion: v1
