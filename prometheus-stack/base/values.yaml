@@ -11,10 +11,10 @@ prometheus:
       - prometheus.localhost
   prometheusSpec:
     securityContext:
-      runAsGroup: 1001
-      runAsNonRoot: true
-      runAsUser: 1002
-      fsGroup: 1001
+      runAsUser: 0
+      runAsNonRoot: false
+      runAsGroup: 0
+      fsGroup: 0
     storageSpec:
       volumeClaimTemplate:
         spec:
@@ -28,11 +28,18 @@ prometheus:
               storage: 30Gi
 prometheusOperator:
   admissionWebhooks:
+    deployment:
+      securityContext:
+        runAsUser: 0
+        runAsNonRoot: false
+        runAsGroup: 0
+        fsGroup: 0
     patch:
       securityContext:
-        runAsGroup: 1001
-        runAsNonRoot: true
-        runAsUser: 1002
+        runAsUser: 0
+        runAsNonRoot: false
+        runAsGroup: 0
+        fsGroup: 0
 
 grafana:
   ingress:
