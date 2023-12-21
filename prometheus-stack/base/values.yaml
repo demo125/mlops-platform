@@ -58,4 +58,4 @@ grafana:
     accessModes:
     - ReadWriteOnce
     size: 10Gi
-    existingClaim: prometheus-stack-grafana-pv
+    existingClaim: prometheus-stack-grafana-pvc
