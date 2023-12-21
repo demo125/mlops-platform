@@ -19,14 +19,13 @@ prometheus:
       volumeClaimTemplate:
         spec:
           storageClassName: local-storage
+          accessModes: ["ReadWriteOnce"]
           selector:
             matchLabels:
-              app.kubernetes.io/name: prometheus-stack-persistence
-          accessModes:
-          - ReadWriteOnce
+              name: prometheus-stack-pv
           resources:
             requests:
-              storage: 30Gi
+              storage: 20Gi
 # prometheusOperator:
 #   admissionWebhooks:
 #     deployment:
