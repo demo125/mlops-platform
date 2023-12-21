@@ -26,20 +26,6 @@ prometheus:
           selector:
             matchLabels:
               name: prometheus-stack-prometheus-pv
-# prometheusOperator:
-#   admissionWebhooks:
-#     deployment:
-#       securityContext:
-#         runAsUser: 0
-#         runAsNonRoot: false
-#         runAsGroup: 0
-#         fsGroup: 0
-#     patch:
-#       securityContext:
-#         runAsUser: 0
-#         runAsNonRoot: false
-#         runAsGroup: 0
-
 grafana:
   adminPassword: password
   ingress:
@@ -59,3 +45,8 @@ grafana:
     - ReadWriteOnce
     size: 10Gi
     existingClaim: prometheus-stack-grafana-pvc
+  securityContext:
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 0
