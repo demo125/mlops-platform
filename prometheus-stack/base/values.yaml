@@ -22,7 +22,7 @@ prometheus:
           - ReadWriteOnce
           resources:
             requests:
-              storage: 100Gi
+              storage: 25Gi
           selector:
             matchLabels:
               name: prometheus-stack-pv
