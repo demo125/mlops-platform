@@ -1,10 +1,3 @@
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: local-storage
-provisioner: kubernetes.io/no-provisioner
-reclaimPolicy: Delete
----
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -12,23 +5,14 @@ metadata:
   labels:
     name: prometheus-stack-pv
 spec:
-  storageClassName: local-storage
   capacity:
     storage: 30Gi
   accessModes:
   - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
+  storageClassName: standard
   hostPath:
     path: /volume-data/prometheus
   claimRef:
     kind: PersistentVolumeClaim
     namespace: kube-prometheus-stack
     name: prometheus-kube-prometheus-stack-prometheus-db-prometheus-kube-prometheus-stack-prometheus-0
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: "kubernetes.io/hostname"
-          operator: In
-          values:
-          - k3d-mlops-platform-agent-0

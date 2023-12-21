@@ -18,14 +18,15 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: local-storage
-          accessModes: ["ReadWriteOnce"]
+          accessModes:
+          - ReadWriteOnce
+          storageClassName: standard
+          resources:
+            requests:
+              storage: 100Gi
           selector:
             matchLabels:
               name: prometheus-stack-pv
-          resources:
-            requests:
-              storage: 20Gi
 # prometheusOperator:
 #   admissionWebhooks:
 #     deployment:
@@ -41,6 +42,7 @@ prometheus:
 #         runAsGroup: 0
 
 grafana:
+  adminPassword: password
   ingress:
     enabled: true
     ingressClassName: nginx
