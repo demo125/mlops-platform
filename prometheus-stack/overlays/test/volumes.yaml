@@ -24,3 +24,11 @@ spec:
     kind: PersistentVolumeClaim
     namespace: kube-prometheus-stack
     name: prometheus-kube-prometheus-stack-prometheus-db-prometheus-kube-prometheus-stack-prometheus-0
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: "kubernetes.io/hostname"
+          operator: In
+          values:
+          - k3d-mlops-platform-agent-0
