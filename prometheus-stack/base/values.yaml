@@ -10,11 +10,11 @@ prometheus:
       hosts:
       - prometheus.localhost
   prometheusSpec:
-    # securityContext:
-    #   runAsUser: 0
-    #   runAsNonRoot: false
-    #   runAsGroup: 0
-    #   fsGroup: 0
+    securityContext:
+      runAsUser: 0
+      runAsNonRoot: false
+      runAsGroup: 0
+      fsGroup: 0
     storageSpec:
       volumeClaimTemplate:
         spec:
