@@ -10,7 +10,7 @@ spec:
     storage: 30Gi
   accessModes:
   - ReadWriteOnce
-  storageClassName: manual
+  storageClassName: local-storage
   hostPath:
     path: /volume-data/prometheus
   claimRef:
