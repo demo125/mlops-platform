@@ -25,7 +25,7 @@ prometheus:
               storage: 25Gi
           selector:
             matchLabels:
-              name: prometheus-stack-pv
+              name: prometheus-stack-prometheus-pv
 # prometheusOperator:
 #   admissionWebhooks:
 #     deployment:
@@ -51,11 +51,11 @@ grafana:
     - secretName: grafana-kube-prometheus-stack-selfsigned-cert
       hosts:
       - grafana.localhost
-  # persistentVolume:
-  #   enabled: true
-  #   existingClaim: grafana-pvc
-  # securityContext:
-  #   fsGroup: 0
-  #   runAsGroup: 0
-  #   runAsNonRoot: false
-  #   runAsUser: 0
+  persistence:
+    type: pvc
+    enabled: true
+    storageClassName: default
+    accessModes:
+    - ReadWriteOnce
+    size: 10Gi
+    existingClaim: prometheus-stack-grafana-pv
