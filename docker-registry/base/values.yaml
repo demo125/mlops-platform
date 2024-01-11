@@ -24,3 +24,16 @@ storage: filesystem
 secrets:
   #htpasswd -Bc ./htpasswd <user_name> then copy the contents of htpasswd file
   htpasswd: "admin:$2y$05$GuqDLRi/t2rPqiKxdPUG5.W1PX7wsJCpT1VV.88JrqY7Rbd5rB.Wm"
+
+metrics:
+  enabled: true
+  port: 5001
+  # Create a prometheus-operator servicemonitor
+  serviceMonitor:
+    enabled: true
+    labels: {}
+  # prometheus-operator PrometheusRule defining alerting rules for a Prometheus instance
+  prometheusRule:
+    enabled: false
+    labels: {}
+    rules: {}
