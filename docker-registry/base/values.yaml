@@ -31,7 +31,8 @@ metrics:
   # Create a prometheus-operator servicemonitor
   serviceMonitor:
     enabled: true
-    labels: {}
+    labels:
+      prometheus: service-monitor
   # prometheus-operator PrometheusRule defining alerting rules for a Prometheus instance
   prometheusRule:
     enabled: false
