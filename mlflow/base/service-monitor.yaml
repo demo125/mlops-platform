@@ -2,7 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    app: mlflow-metrics
+    app: mlflow
     release: mlflow
   name: mlflow-servicemonitor
 spec:
