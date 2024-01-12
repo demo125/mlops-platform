@@ -36,3 +36,10 @@ metrics:
     enabled: false
     labels: {}
     rules: {}
+
+configData:
+  http:
+    debug:
+      prometheus:
+        enabled: true
+        path: /metrics
