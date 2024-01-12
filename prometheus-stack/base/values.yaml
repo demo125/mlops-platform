@@ -26,10 +26,10 @@ prometheus:
           selector:
             matchLabels:
               name: prometheus-stack-prometheus-pv
-    # serviceMonitorNamespaceSelector: {} #to select all
-    serviceMonitorNamespaceSelector:
-      matchLabels:
-        kubernetes.io/metadata.name: docker-registry
+    serviceMonitorNamespaceSelector: {} #to select all
+    # serviceMonitorNamespaceSelector:
+    # matchLabels:
+    # kubernetes.io/metadata.name: docker-registry
     ruleSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
     podMonitorSelectorNilUsesHelmValues: false
