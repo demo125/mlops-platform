@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: mlflow-metrics
+    release: mlflow
+  name: mlflow-servicemonitor
+  namespace: mlflow
+spec:
+  endpoints:
+  - interval: 15s
+    port: http
+  selector:
+    matchLabels:
+      app: mlflow
+      heritage: Helm
+      release: mlflow
