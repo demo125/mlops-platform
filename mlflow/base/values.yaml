@@ -35,3 +35,17 @@ extraEnvVars:
 
 extraSecretNamesForEnvFrom:
 - mlflow-secret
+
+serviceMonitor:
+  # -- When set true then use a ServiceMonitor to configure scraping
+  enabled: true
+  # -- When set true then use a service port. On default use a pod port.
+  useServicePort: true
+  # -- Set the namespace the ServiceMonitor should be deployed
+  namespace: mlflow
+  # -- Set how frequently Prometheus should scrape
+  interval: 30s
+  # -- Set path to mlflow telemtery-path
+  telemetryPath: /metrics
+  labels:
+    release: prometheus
