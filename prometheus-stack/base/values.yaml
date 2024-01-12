@@ -28,7 +28,7 @@ prometheus:
               name: prometheus-stack-prometheus-pv
     serviceMonitorNamespaceSelector:
       matchLabels:
-      - prometheus: service-monitor
+        prometheus: service-monitor
 
 grafana:
   adminPassword: password
