@@ -41,7 +41,7 @@ serviceMonitor:
   # -- When set true then use a ServiceMonitor to configure scraping
   enabled: true
   # -- When set true then use a service port. On default use a pod port.
-  useServicePort: true
+  useServicePort: false
   namespace: mlflow
   interval: 30s
   telemetryPath: /metrics
