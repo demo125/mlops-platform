@@ -5,7 +5,6 @@ metadata:
     app: mlflow-metrics
     release: mlflow
   name: mlflow-servicemonitor
-  namespace: mlflow
 spec:
   endpoints:
   - interval: 15s
