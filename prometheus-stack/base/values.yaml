@@ -27,8 +27,8 @@ prometheus:
             matchLabels:
               name: prometheus-stack-prometheus-pv
     serviceMonitorNamespaceSelector:
-      matchNames:
-      - docker-registry
+      matchLabels:
+      - prometheus: service-monitor
 
 grafana:
   adminPassword: password
