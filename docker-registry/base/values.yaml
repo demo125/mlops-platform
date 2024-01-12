@@ -21,9 +21,9 @@ persistence:
   size: 100Gi
 storage: filesystem
 
-secrets:
-  #htpasswd -Bc ./htpasswd <user_name> then copy the contents of htpasswd file
-  htpasswd: "admin:$2y$05$GuqDLRi/t2rPqiKxdPUG5.W1PX7wsJCpT1VV.88JrqY7Rbd5rB.Wm"
+# secrets:
+#htpasswd -Bc ./htpasswd <user_name> then copy the contents of htpasswd file
+# htpasswd: "admin:$2y$05$GuqDLRi/t2rPqiKxdPUG5.W1PX7wsJCpT1VV.88JrqY7Rbd5rB.Wm"
 
 metrics:
   enabled: true
