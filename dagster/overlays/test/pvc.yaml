@@ -1,0 +1,55 @@
+#postgres
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dagster-postgres-pvc
+spec:
+  storageClassName: standard
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  volumeName: dagster-postgres-pv
+#daemon
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dagster-daemon-pvc
+spec:
+  storageClassName: standard
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  volumeName: dagster-daemon-pv
+#webserver
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dagster-webserver-pvc
+spec:
+  storageClassName: standard
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  volumeName: dagster-webserver-pv
+#executors
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dagster-executors-pvc
+spec:
+  storageClassName: standard
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+  volumeName: dagster-executors-pv

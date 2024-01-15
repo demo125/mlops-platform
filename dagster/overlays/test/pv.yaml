@@ -1,0 +1,75 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: dagster-postgres-pv
+  labels:
+    name: dagster-postgres-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: standard
+  hostPath:
+    path: /volume-data/dagster/postgres
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: dagster
+    name: dagster-postgres-pvc
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: dagster-daemon-pv
+  labels:
+    name: dagster-daemon-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: standard
+  hostPath:
+    path: /volume-data/dagster/daemon
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: dagster
+    name: dagster-daemon-pvc
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: dagster-webserver-pv
+  labels:
+    name: dagster-webserver-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: standard
+  hostPath:
+    path: /volume-data/dagster/webserver
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: dagster
+    name: dagster-webserver-pvc
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: dagster-executors-pv
+  labels:
+    name: dagster-executors-pv
+spec:
+  capacity:
+    storage: 100Gi
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: standard
+  hostPath:
+    path: /volume-data/dagster/executors
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: dagster
+    name: dagster-executors-pvc

@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dagster-dagster-webserver
+  labels:
+    app.kubernetes.io/name: dagster
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: dagster-dagster-webserver
+            port:
+              number: 80
+              # name: https
+    host: dagster.localhost
+  tls:
+  - hosts:
+    - dagster.localhost
+    secretName: dagster-dagster-webserver-cert

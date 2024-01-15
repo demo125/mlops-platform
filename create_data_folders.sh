@@ -4,6 +4,10 @@ mkdir volume
 
 mkdir $VOLUME_PATH_AGENT_0/minio -p
 mkdir $VOLUME_PATH_AGENT_0/jenkins -p
+mkdir $VOLUME_PATH_AGENT_0/dagster/postgres -p
+mkdir $VOLUME_PATH_AGENT_0/dagster/daemon -p
+mkdir $VOLUME_PATH_AGENT_0/dagster/webserver -p
+mkdir $VOLUME_PATH_AGENT_0/dagster/executors -p
 mkdir $VOLUME_PATH_AGENT_0/prometheus-stack/prometheus -p
 mkdir $VOLUME_PATH_AGENT_0/prometheus-stack/grafana -p
 mkdir $VOLUME_PATH_AGENT_0/mlflow/postgres -p

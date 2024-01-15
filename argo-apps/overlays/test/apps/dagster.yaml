@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dagster
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    namespace: dagster
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: https://github.com/demo125/mlops-platform.git
+    path: apps/dagster/overlays/test
+    targetRevision: 'deploy/test'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - PruneLast=true

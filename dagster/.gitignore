@@ -1,0 +1,4 @@
+sample.*
+secret.yaml
+charts
+*mindi*.yaml

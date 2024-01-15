@@ -29,6 +29,9 @@ kubectl create namespace $namespace
 
 # Taint the master node, so pods will not be scheduled on it
 kubectl taint nodes k3d-mlops-platform-server-0 node-role.kubernetes.io/master=:NoSchedule
+# label a node as a dagster worker
+# check dagster/base/values.yaml runLauncher.config.k8sRunLauncher.runK8sConfig.podSpecConfig.nodeSelector
+kubectl label nodes k3d-mlops-platform-agent-0  dagster-role=worker
 
 # Verify the cluster
 kubectl get nodes
