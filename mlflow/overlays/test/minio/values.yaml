@@ -16,4 +16,5 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: mlflow-minio-issuer
-
+  secrets:
+  - name: mlflow-minio-selfsigned-cert
