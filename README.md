@@ -80,3 +80,14 @@ install kubeseal cli:
 ```
 kubeseal --scope namespace-wide --controller-name sealed-secrets --controller-namespace=sealed-secrets -f secret.yaml -w sealed-secret.yaml -n <namespace>
 ```
+
+# Updating secrets
+example for mlflow
+```
+kubectl delete sealedsecrets.bitnami.com -n mlflow --all
+```
+generate new secets:
+```
+kubeseal --scope namespace-wide --controller-name sealed-secrets --controller-namespace=sealed-secrets -f secret.yaml -w sealed-secret.yaml -n mlflow
+```
+then git add them, push, refresh argo app

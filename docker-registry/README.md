@@ -24,3 +24,7 @@ Push to registry example:
 docker tag python:3.8.6-slim-buster  docker-registry.localhost:11443/python:latest
 docker push docker-registry.localhost:11443/python:latest
 ```
+Pull from registry:
+```
+docker pull docker-registry.localhost:11443/python:latest
+```

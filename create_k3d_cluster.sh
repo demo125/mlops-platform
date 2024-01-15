@@ -27,5 +27,8 @@ kubectl config use-context $CLUSTER_NAME
 
 kubectl create namespace $namespace
 
+# Taint the master node, so pods will not be scheduled on it
+kubectl taint nodes k3d-mlops-platform-server-0 node-role.kubernetes.io/master=:NoSchedule
+
 # Verify the cluster
 kubectl get nodes
