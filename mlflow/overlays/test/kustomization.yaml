@@ -10,6 +10,7 @@ resources:
 - postgres/volumes.yaml
 - minio/sealed-secret.yaml
 - minio/issuer.yaml
+- minio/certificate.yaml
 - minio/volumes.yaml
 helmCharts:
 - name: postgresql
