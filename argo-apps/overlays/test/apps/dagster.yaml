@@ -10,7 +10,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: https://github.com/demo125/mlops-platform.git
-    path: apps/dagster/overlays/test
+    path: dagster/overlays/test
     targetRevision: HEAD
   syncPolicy:
     automated:
