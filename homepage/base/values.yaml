@@ -33,6 +33,10 @@ config:
         href: https://mlflow.localhost/
         description: End-to-end machine learning lifecycle
         icon: https://gitlab.eox.at/uploads/-/system/project/avatar/347/61449322.png
+    - Minio:
+        href: https://minio.localhost/
+        description: Browse data in the s3 storage
+        icon: minio
     - MLflow Minio:
         href: https://mlflow-minio.localhost/
         description: Browse mlflow artifacts and models in the s3 storage

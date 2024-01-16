@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: minio-selfsigned-cert
+spec:
+  dnsNames:
+  - minio.localhost
+  commonName: "my-selfsigned-cert"
+  secretName: minio-selfsigned-cert
+  issuerRef:
+    name: minio-issuer

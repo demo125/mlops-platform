@@ -1,0 +1,7 @@
+auth:
+  rootUser: admin
+  existingSecret: minio-secret
+
+persistence:
+  enabled: true
+  existingClaim: minio-pvc

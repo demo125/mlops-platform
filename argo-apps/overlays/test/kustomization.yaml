@@ -12,5 +12,6 @@ resources:
 - apps/kubernetes-dashboard.yaml
 - apps/loki.yaml
 - apps/mlflow.yaml
+- apps/minio.yaml
 - apps/sealed-secrets.yaml
 - apps/docker-registry.yaml
