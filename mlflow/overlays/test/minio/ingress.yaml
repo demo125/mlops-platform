@@ -4,8 +4,6 @@ metadata:
   name: mlflow-minio
   labels:
     app: mlflow
-  annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: nginx
   rules:
