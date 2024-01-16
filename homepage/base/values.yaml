@@ -1,0 +1,115 @@
+image:
+  repository: ghcr.io/gethomepage/homepage
+  tag: v0.8.4
+
+config:
+
+  settings:
+    title: MLops platform
+    theme: dark
+    color: slate
+    background:
+      image: https://cdnb.artstation.com/p/assets/images/images/006/897/659/large/mikael-gustafsson-wallpaper-mikael-gustafsson.jpg
+      blur: sm # sm, md, xl... see https://tailwindcss.com/docs/backdrop-blur
+      saturate: 100 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
+      brightness: 50 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
+      opacity: 100 # 0-100
+
+  services:
+  - Development:
+    - Dagster:
+        href: https://dagster.localhost/
+        description: An orchestration platform for data assets
+        icon: https://dagster.io/images/brand/logos/dagster-primary-mark.png
+    - Docker registry:
+        href: https://docker-registry.localhost/v2/_catalog
+        description: Check out your Docker repositories
+        icon: docker
+    - Jenkins:
+        href: https://jenkins.localhost/
+        description: Manage software delivery processes
+        icon: jenkins
+    - MLflow:
+        href: https://mlflow.localhost/
+        description: End-to-end machine learning lifecycle
+        icon: https://gitlab.eox.at/uploads/-/system/project/avatar/347/61449322.png
+    - MLflow Minio:
+        href: https://mlflow-minio.localhost/
+        description: Browse mlflow artifacts and models in the s3 storage
+        icon: minio
+
+  - Administration:
+    - Grafana:
+        description: Visualize data from Prometheus and Loki
+        href: https://grafana.localhost/
+        icon: grafana # downloaded automaticaly from https://github.com/walkxcode/dashboard-icons/
+        widget:
+          type: grafana
+          url: http://kube-prometheus-stack-grafana.kube-prometheus-stack.svc.cluster.local:80
+          username: admin
+          password: password
+    - Prometheus:
+        description: Collect and visualize metrics
+        href: https://prometheus.localhost/
+        icon: prometheus # downloaded automaticaly from https://github.com/walkxcode/dashboard-icons/
+        widget:
+          type: prometheus
+          url: http://kube-prometheus-stack-prometheus.kube-prometheus-stack.svc.cluster.local:9090
+    - K8s Dashboard:
+        description: Manage your Kubernetes cluster
+        href: https://dashboard.localhost/
+        icon: kubernetes-dashboard # downloaded automaticaly from https://github.com/walkxcode/dashboard-icons/
+    - ArgoCD:
+        description: CD tool for Kubernetes
+        href: https://argocd.localhost/
+        icon: argocd # downloaded automaticaly from https://github.com/walkxcode/dashboard-icons/
+
+  - Github:
+    - MLops paltform:
+        description: Repo of this platfrom
+        href: https://github.com/demo125/mlops-platform
+        icon: github
+
+  bookmarks: {}
+
+
+  widgets:
+  # show the kubernetes widget, with the cluster summary and individual nodes
+  - kubernetes:
+      cluster:
+        show: true
+        cpu: true
+        memory: true
+        showLabel: true
+        label: "cluster"
+      nodes:
+        show: true
+        cpu: true
+        memory: true
+        showLabel: true
+  - search:
+      provider: google
+      target: _blank
+  kubernetes:
+    mode: cluster
+# The service account is necessary to allow discovery of other services
+serviceAccount:
+  create: true
+  name: homepage
+
+# This enables the service account to access the necessary resources
+enableRbac: true
+
+ingress:
+  main:
+    enabled: true
+    ingressClassName: "nginx"
+    hosts:
+    - host: homepage.localhost
+      paths:
+      - path: /
+        pathType: Prefix
+    tls:
+    - hosts:
+      - homepage.localhost
+      secretName: homepage-selfsigned-cert

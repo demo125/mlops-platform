@@ -5,6 +5,7 @@ resources:
 - apps/argocd.yaml
 - apps/cert-manager.yaml
 - apps/dagster.yaml
+- apps/homepage.yaml
 - apps/ingress-nginx.yaml
 - apps/jenkins.yaml
 - apps/prometheus-stack.yaml
