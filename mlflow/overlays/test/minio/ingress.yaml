@@ -15,7 +15,7 @@ spec:
         path: /
         backend:
           service:
-            name: mlflow-minio
+            name: minio
             port:
               number: 9001
     host: mlflow-minio.localhost
