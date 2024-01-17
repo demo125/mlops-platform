@@ -5,6 +5,7 @@ metadata:
 spec:
   dnsNames:
   - minio.localhost
+  - minio-backend.localhost
   commonName: "my-selfsigned-cert"
   secretName: minio-selfsigned-cert
   issuerRef:

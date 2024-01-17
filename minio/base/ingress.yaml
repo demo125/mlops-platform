@@ -17,7 +17,18 @@ spec:
             port:
               number: 9001
     host: minio.localhost
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: minio
+            port:
+              number: 9000
+    host: minio-backend.localhost
   tls:
   - hosts:
     - minio.localhost
+    - minio-backend.localhost
     secretName: minio-selfsigned-cert
