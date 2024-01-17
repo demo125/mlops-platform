@@ -16,8 +16,8 @@ spec:
             name: minio
             port:
               number: 9001
-    host: minio.mlopsplatform
+    host: minio.localhost
   tls:
   - hosts:
-    - minio.mlopsplatform
+    - minio.localhost
     secretName: minio-selfsigned-cert
