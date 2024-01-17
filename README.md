@@ -91,3 +91,4 @@ generate new secets:
 kubeseal --scope namespace-wide --controller-name sealed-secrets --controller-namespace=sealed-secrets -f secret.yaml -w sealed-secret.yaml -n mlflow
 ```
 then git add them, push, refresh argo app
+
