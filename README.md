@@ -92,13 +92,3 @@ kubeseal --scope namespace-wide --controller-name sealed-secrets --controller-na
 ```
 then git add them, push, refresh argo app
 
-
-# DNSmas
-install - https://computingforgeeks.com/install-and-configure-dnsmasq-on-ubuntu/
-```
-sudo nano /etc/dnsmasq.conf
-address=/.mlopsplatform/127.0.0.1
-sudo service dnsmasq restart
-sudo service network-manager restart
-curl https://minio.mlopsplatform:11443 --insecure
-```
