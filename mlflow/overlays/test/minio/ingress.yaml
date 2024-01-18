@@ -16,8 +16,18 @@ spec:
             name: minio
             port:
               number: 9001
-    host: mlflow-minio.localhost
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: minio
+            port:
+              number: 9000
+    host: mlflow-minio-backend.localhost
   tls:
   - hosts:
     - mlflow-minio.localhost
+    - mlflow-minio-backend.localhost
     secretName: mlflow-minio-selfsigned-cert

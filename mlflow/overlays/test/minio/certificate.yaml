@@ -5,6 +5,7 @@ metadata:
 spec:
   dnsNames:
   - mlflow-minio.localhost
+  - mlflow-minio-backend.localhost
   commonName: "my-selfsigned-cert"
   secretName: mlflow-minio-selfsigned-cert
   issuerRef:
