@@ -31,4 +31,4 @@ spec:
   - hosts:
     - minio.localhost
     - minio-backend.localhost
-    secretName: minio-selfsigned-cert
+    secretName: cluster-selfsigned-cert

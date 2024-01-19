@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cluster-selfsigned-cert
+spec:
+  dnsNames:
+  - minio.localhost
+  - minio-backend.localhost
+  - mlflow.localhost
+  commonName: "my-selfsigned-cert"
+  secretName: cluster-selfsigned-cert
+  issuerRef:
+    name: cluster-issuer

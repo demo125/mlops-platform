@@ -11,7 +11,7 @@ ingress:
   tls:
   - hosts:
     - mlflow.localhost
-    secretName: mlflow-selfsigned-cert
+    secretName: cluster-selfsigned-cert
 
 backendStore:
   databaseMigration: false
