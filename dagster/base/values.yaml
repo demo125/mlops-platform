@@ -18,7 +18,7 @@ dagster-user-deployments:
   deployments:
   - name: "example-project"
     image:
-      repository: docker-registry/example-project:32
+      repository: docker-registry/example-project
       tag: 32
       pullPolicy: Always
     dagsterApiGrpcArgs:
