@@ -10,4 +10,4 @@ resources:
 - ./issuer.yaml
 - ./config.yaml
 - ./sealed-secret.yaml
-# - ./sealed-mindit-docker-registry-secret.yaml
+- ./sealed-docker-registry-secret.yaml

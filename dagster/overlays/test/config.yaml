@@ -3,4 +3,8 @@ kind: ConfigMap
 metadata:
   name: dagster-config-map
 data:
-  MY_ENV: my-env-123
+  MLFLOW_TRACKING_URI: "http://mlflow.mlflow.svc.cluster.local:5000"
+  MLFLOW_S3_ENDPOINT_URL: "http://minio.mlflow.svc.cluster.local:9000"
+  #MLFLOW_TRACKING_INSECURE_TLS=True
+  #MLFLOW_S3_IGNORE_TLS=True
+  #SEED=42

@@ -11,45 +11,28 @@ postgresql:
     #https://stackoverflow.com/questions/63924161/postgresql-container-not-starting-chmod-changing-permissions-of-bitnami-post
     existingClaim: dagster-postgres-pvc
 
-# dagster-user-deployments:
-#   enabled: true
-#   imagePullSecrets:
-#   - name: mindit-docker-registry-secret
-#   deployments:
-#   - name: "chastia"
-#     image:
-#       repository: "docker.mindit.sk:30000/dagster-etls"
-#       tag: 79
-#       pullPolicy: Always
-#     dagsterApiGrpcArgs:
-#     - "-d"
-#     - "chastia"
-#     - "-m"
-#     - "chastia"
-#     port: 3030
-#     includeConfigInLaunchedRuns:
-#       enabled: true
-#     envConfigMaps:
-#     - name: dagster-config-map
-#     envSecrets:
-#     - name: dagster-secret
-#   - name: "helios"
-#     image:
-#       repository: "docker.mindit.sk:30000/dagster-etls"
-#       tag: 79
-#       pullPolicy: Always
-#     dagsterApiGrpcArgs:
-#     - "-d"
-#     - "helios"
-#     - "-m"
-#     - "helios"
-#     port: 3030
-#     includeConfigInLaunchedRuns:
-#       enabled: true
-#     envConfigMaps:
-#     - name: dagster-config-map
-#     envSecrets:
-#     - name: dagster-secret
+dagster-user-deployments:
+  enabled: true
+  imagePullSecrets:
+  - name: docker-registry-secret
+  deployments:
+  - name: "example-project"
+    image:
+      repository: "docker-registry.docker-registry.svc.cluster.local:5000"
+      tag: 32
+      pullPolicy: Always
+    dagsterApiGrpcArgs:
+    - "-d"
+    - "project_name"
+    - "-m"
+    - "project_name"
+    port: 3030
+    includeConfigInLaunchedRuns:
+      enabled: true
+    envConfigMaps:
+    - name: dagster-config-map
+    envSecrets:
+    - name: dagster-secret
 
 dagsterWebserver:
   workspace:
