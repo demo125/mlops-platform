@@ -8,6 +8,6 @@ spec:
   - minio-backend.localhost
   - mlflow.localhost
   commonName: "my-selfsigned-cert"
-  secretName: cluster-selfsigned-cert
+  secretName: cluster-cert-secret
   issuerRef:
     name: cluster-issuer
