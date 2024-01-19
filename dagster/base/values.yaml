@@ -18,7 +18,7 @@ dagster-user-deployments:
   deployments:
   - name: "example-project"
     image:
-      repository: "docker-registry.docker-registry.svc.cluster.local:5000/example-project"
+      repository: docker-registry/example-project:32
       tag: 32
       pullPolicy: Always
     dagsterApiGrpcArgs:
