@@ -20,3 +20,6 @@ cat ca.key | base64 -w 0
 ```
 1. put to ca-secret.yaml - use sample
 1. use sealed secret without -n option(namespace wide)
+```
+kubeseal --scope namespace-wide --controller-name sealed-secrets --controller-namespace=sealed-secrets -f ca-secret.yaml -w sealed-ca-secret.yaml 
+```
