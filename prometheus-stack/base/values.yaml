@@ -42,11 +42,14 @@ grafana:
   adminPassword: password
   ingress:
     enabled: true
+    annotations:
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      cert-manager.io/cluster-issuer: cluster-issuer
     ingressClassName: nginx
     hosts:
     - grafana.localhost
     tls:
-    - secretName: grafana-kube-prometheus-stack-selfsigned-cert
+    - secretName: prometheus-kube-grafana-stack-cert-secret
       hosts:
       - grafana.localhost
   persistence:
