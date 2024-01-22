@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: minio
 resources:
 - ../../base
-- certificate.yaml
-- issuer.yaml
+# - certificate.yaml
+# - issuer.yaml
 - sealed-secret.yaml
 - volumes.yaml
