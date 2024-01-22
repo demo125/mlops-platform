@@ -4,11 +4,11 @@ metadata:
   name: mlflow-minio
   labels:
     app: mlflow
-spec:
-  ingressClassName: nginx
   annotations:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     cert-manager.io/cluster-issuer: cluster-issuer
+spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:

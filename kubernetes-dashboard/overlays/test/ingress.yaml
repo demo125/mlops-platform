@@ -4,12 +4,9 @@ metadata:
   name: kubernetes-dashboard
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    certmanager.k8s.io/cluster-issuer: dashboard-issuer
+    cert-manager.io/cluster-issuer: cluster-issuer
 spec:
   ingressClassName: nginx
-  annotations:
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    cert-manager.io/cluster-issuer: cluster-issuer
   rules:
   - http:
       paths:
