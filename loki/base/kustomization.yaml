@@ -2,14 +2,14 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - namespace.yaml
-- crds/loki/base/crds/monitoring.coreos.com_podmonitors.yaml
-- crds/loki/base/crds/monitoring.coreos.com_probes.yaml
-- crds/loki/base/crds/monitoring.coreos.com_servicemonitors.yaml
-- crds/loki/base/crds/monitoring.grafana.com_grafanaagents.yaml
-- crds/loki/base/crds/monitoring.grafana.com_integrations.yaml
-- crds/loki/base/crds/monitoring.grafana.com_logsinstances.yaml
-- crds/loki/base/crds/monitoring.grafana.com_metricsinstances.yaml
-- crds/loki/base/crds/monitoring.grafana.com_podlogs.yaml
+- crds/monitoring.coreos.com_podmonitors.yaml
+- crds/monitoring.coreos.com_probes.yaml
+- crds/monitoring.coreos.com_servicemonitors.yaml
+- crds/monitoring.grafana.com_grafanaagents.yaml
+- crds/monitoring.grafana.com_integrations.yaml
+- crds/monitoring.grafana.com_logsinstances.yaml
+- crds/monitoring.grafana.com_metricsinstances.yaml
+- crds/monitoring.grafana.com_podlogs.yaml
 helmCharts:
 - name: loki
   includeCRDs: false
