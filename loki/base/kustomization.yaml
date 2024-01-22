@@ -4,13 +4,13 @@ resources:
 - namespace.yaml
 helmCharts:
 - name: loki
-  includeCRDs: false
+  includeCRDs: true
   namespace: loki
   repo: https://grafana.github.io/helm-charts
   releaseName: loki
   valuesFile: values-loki.yaml
 - name: promtail
-  includeCRDs: false
+  includeCRDs: true
   namespace: promtail
   repo: https://grafana.github.io/helm-charts
   releaseName: promtail
