@@ -7,5 +7,3 @@ resources:
 - admin-user_sa.yaml
 - admin-user_crb.yaml
 - view_crb.yaml
-- certificate.yaml
-- issuer.yaml

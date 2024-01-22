@@ -3,8 +3,6 @@ kind: Kustomization
 namespace: jenkins
 resources:
 - ../../base
-- certificate.yaml
-- issuer.yaml
 - ingress.yaml
 - volumes.yaml
 - role.yaml

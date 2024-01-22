@@ -6,8 +6,6 @@ resources:
 - ./pv.yaml
 - ./pvc.yaml
 - ./ingress.yaml
-- ./certificate.yaml
-- ./issuer.yaml
 - ./config.yaml
 - ./sealed-secret.yaml
 - ./sealed-docker-registry-secret.yaml

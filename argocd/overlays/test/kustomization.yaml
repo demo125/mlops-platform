@@ -4,5 +4,3 @@ namespace: argocd
 resources:
 - ../../base/
 - ingress.yaml
-- certificate.yaml
-- issuer.yaml

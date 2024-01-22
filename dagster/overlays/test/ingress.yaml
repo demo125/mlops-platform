@@ -6,6 +6,7 @@ metadata:
     app.kubernetes.io/name: dagster
   annotations:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: cluster-issuer
 spec:
   ingressClassName: nginx
   rules:
@@ -23,4 +24,5 @@ spec:
   tls:
   - hosts:
     - dagster.localhost
-    secretName: dagster-dagster-webserver-cert
+    secretName: dagster-dagster-webserver-cert-secret
+

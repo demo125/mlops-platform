@@ -3,6 +3,8 @@ ingress:
   className: "nginx"
   annotations:
     kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: cluster-issuer
   hosts:
   - host: mlflow.localhost
     paths:
@@ -11,7 +13,7 @@ ingress:
   tls:
   - hosts:
     - mlflow.localhost
-    secretName: cluster-selfsigned-cert
+    secretName: mlflow-cert-secret
 
 backendStore:
   databaseMigration: false

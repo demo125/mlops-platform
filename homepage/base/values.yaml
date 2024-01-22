@@ -108,6 +108,9 @@ ingress:
   main:
     enabled: true
     ingressClassName: "nginx"
+    annotations:
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      cert-manager.io/cluster-issuer: cluster-issuer
     hosts:
     - host: homepage.localhost
       paths:
@@ -116,4 +119,5 @@ ingress:
     tls:
     - hosts:
       - homepage.localhost
-      secretName: homepage-selfsigned-cert
+      secretName: homepage-cert-secret
+

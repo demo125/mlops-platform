@@ -9,8 +9,10 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: cluster-issuer
   tls:
-  - secretName: docker-registry-selfsigned-cert
+  - secretName: docker-registry-cert-secret
     hosts:
     - docker-registry.localhost
 

@@ -6,6 +6,9 @@ metadata:
     app: mlflow
 spec:
   ingressClassName: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: cluster-issuer
   rules:
   - http:
       paths:
@@ -30,4 +33,5 @@ spec:
   - hosts:
     - mlflow-minio.localhost
     - mlflow-minio-backend.localhost
-    secretName: mlflow-minio-selfsigned-cert
+    secretName: mlflow-minio-cert-secret
+

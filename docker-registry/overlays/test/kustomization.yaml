@@ -3,6 +3,4 @@ kind: Kustomization
 namespace: docker-registry
 resources:
 - ../../base
-- certificate.yaml
-- issuer.yaml
 - volumes.yaml

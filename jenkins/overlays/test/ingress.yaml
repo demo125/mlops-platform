@@ -6,6 +6,9 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: cluster-issuer
   rules:
   - http:
       paths:
@@ -20,4 +23,4 @@ spec:
   tls:
   - hosts:
     - jenkins.localhost
-    secretName: jenkins-selfsigned-cert
+    secretName: jenkins-cert-secret

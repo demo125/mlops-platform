@@ -3,6 +3,4 @@ kind: Kustomization
 namespace: kube-prometheus-stack
 resources:
 - ../../base
-- certificate.yaml
-- issuer.yaml
 - volumes.yaml

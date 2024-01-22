@@ -7,6 +7,9 @@ metadata:
     certmanager.k8s.io/cluster-issuer: dashboard-issuer
 spec:
   ingressClassName: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: cluster-issuer
   rules:
   - http:
       paths:
@@ -21,4 +24,5 @@ spec:
   tls:
   - hosts:
     - dashboard.localhost
-    secretName: dashboard-selfsigned-cert
+    secretName: dashboard-cert-secret
+

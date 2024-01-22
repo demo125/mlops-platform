@@ -3,5 +3,4 @@ kind: Kustomization
 namespace: homepage
 resources:
 - ../../base
-- certificate.yaml
-- issuer.yaml
+
