@@ -11,3 +11,4 @@ spec:
   secretName: cluster-cert-secret
   issuerRef:
     name: cluster-issuer
+    kind: ClusterIssuer
