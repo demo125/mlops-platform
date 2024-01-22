@@ -4,6 +4,9 @@ metadata:
   name: minio
   labels:
     app: minio
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: cluster-issuer
 spec:
   ingressClassName: nginx
   rules:
@@ -31,4 +34,4 @@ spec:
   - hosts:
     - minio.localhost
     - minio-backend.localhost
-    secretName: cluster-cert-secret
+    secretName: minio-cert-secret
