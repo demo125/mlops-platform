@@ -12,3 +12,5 @@ spec:
   issuerRef:
     name: cluster-issuer
     kind: ClusterIssuer
+  privateKey:
+    rotationPolicy: Always
