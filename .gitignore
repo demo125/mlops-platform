@@ -1,3 +1,4 @@
 .env
 volume
 kubeconfig.yaml
+registry-ca.pem
