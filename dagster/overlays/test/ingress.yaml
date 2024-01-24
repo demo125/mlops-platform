@@ -20,9 +20,9 @@ spec:
             port:
               number: 80
               # name: https
-    host: dagster.localhost
+    host: dagster.mlplatform
   tls:
   - hosts:
-    - dagster.localhost
+    - dagster.mlplatform
     secretName: dagster-dagster-webserver-cert-secret
 

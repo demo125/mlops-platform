@@ -10,22 +10,25 @@ if ! command -v k3d &> /dev/null; then
 fi
 
 
-echo "Creating volume from $VOLUME_PATH_AGENT_0"
+echo "Creating volume folders"
 ./create_data_folders.sh
 
 
-echo "Creating cluster $CLUSTER_NAME with $NUM_WORKERS workers"
+echo "Creating cluster "mlops-platform" with "1" workers"
 # Create k3d cluster
 #params: check .env file
-k3d cluster create "$CLUSTER_NAME" \
---agents "$NUM_WORKERS" \
--p "10443:443@agent:0" \
--p "10080:80@agent:0" \
---volume $VOLUME_PATH_AGENT_0:/volume-data@agent:0
+
+k3d cluster create $CLUSTER_NAME --agents $NUM_WORKERS --config ./k3d-config.yaml
+
+# k3d cluster create "$CLUSTER_NAME" \
+# --agents "$NUM_WORKERS" \
+# -p "10443:443@agent:0" \
+# -p "10080:80@agent:0" \
+# --volume $VOLUME_PATH_AGENT_0:/volume-data@agent:0 \
+# --volume "$(pwd)/registry-ca.pem:/etc/ssl/certs/registry-ca.pem" \
+# --registry-config ./registries.yaml
 
 kubectl config use-context $CLUSTER_NAME
-
-kubectl create namespace $namespace
 
 # Taint the master node, so pods will not be scheduled on it
 kubectl taint nodes k3d-mlops-platform-server-0 node-role.kubernetes.io/master=:NoSchedule
@@ -35,3 +38,8 @@ kubectl label nodes k3d-mlops-platform-agent-0  dagster-role=worker
 
 # Verify the cluster
 kubectl get nodes
+
+kubectl apply -f ./sealed-secrets/overlays/test/sealed-secrets-bootstrap.yaml -n sealed-secrets
+kubectl apply -k argocd/overlays/test/
+kubectl apply -k argo-apps/overlays/test/
+cd loki/base/crds && bash ./up.sh

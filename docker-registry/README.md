@@ -28,3 +28,11 @@ Pull from registry:
 ```
 docker pull docker-registry.mlplatform:11443/python:latest
 ```
+
+Docker hub account
+```
+kubectl create secret docker-registry docker-registry-dockerio --docker-server=docker.io --docker-username=<name> --docker-password=<pass> --docker-email=<email>
+```
+```
+kubeseal --scope namespace-wide --controller-name sealed-secrets --controller-namespace=sealed-secrets -f registry-secret.yaml -w sealed-registry-secret.yaml -n docker-registry
+```

@@ -11,6 +11,11 @@ VOLUME_PATH_AGENT_0=$(pwd)/volume
 ```
 ./create_k3d_cluster.sh
 ```
+### Create sealed-secrets-bootstrap secret
+```
+kubectl apply -f ./sealed-secrets/overlays/test/sealed-secrets-bootstrap.yaml -n sealed-secrets
+``` 
+
 ### Run argocd
 ```
 kubectl apply -k argocd/overlays/test/
@@ -30,18 +35,29 @@ watch kubectl get applications -A
 ```
 kubectl -n ingress-nginx --address 0.0.0.0 port-forward svc/ingress-nginx-controller 11443:443
 ```
-access apps on *.localhost eg:
-- argocd.localhost
-- dashboard.localhost
-- mlflow.localhost
+access apps on *.mlplatform eg:
+- argocd.mlplatform
+- dashboard.mlplatform
+- mlflow.mlplatform
 When cluster is on remote server, portforward servers localhost to local-workstation's localhost:
 run on local-workstation:
 ```
-ssh -L localhost:11443:localhost:11443 mde@192.168.2.150
+ssh -L localhost:443:localhost:11443 mde@vega
 ```
+Add all ingress addresses to etc hosts.
+```
+127.0.0.1       docker-registry.mlplatform
+127.0.0.1       argocd.mlplatform
+127.0.0.1       mlflow.mlplatform
+127.0.0.1       dashboard.mlplatform
+127.0.0.1       homepage.mlplatform
+127.0.0.1       jenkins.mlplatform
+127.0.0.1       grafana.mlplatform
+```
+When accessing to the remote host, add it to you current workstation(C/windows/system32/dribers/etc/hosts)
 
 ### Get argo webui password
-- go to argocd.localhost
+- go to argocd.mlplatform
 - username is admin
 - password:
 ```
@@ -49,7 +65,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ```
 
 ### Kubernetes dashboard
-- go to dashboard.localhost
+- go to dashboard.mlplatform
 - create access token:
 ```
 ./kubernetes-dashboard/overlays/test/get-token.sh 
