@@ -18,34 +18,34 @@ config:
   services:
   - Development:
     - Dagster:
-        href: https://dagster.localhost/
+        href: https://dagster.mlplatform/
         description: An orchestration platform for data assets
         icon: https://dagster.io/images/brand/logos/dagster-primary-mark.png
     - Docker registry:
-        href: https://docker-registry.localhost/v2/_catalog
+        href: https://docker-registry.mlplatform/v2/_catalog
         description: Check out your Docker repositories
         icon: docker
     - Jenkins:
-        href: https://jenkins.localhost/
+        href: https://jenkins.mlplatform/
         description: Manage software delivery processes
         icon: jenkins
     - MLflow:
-        href: https://mlflow.localhost/
+        href: https://mlflow.mlplatform/
         description: End-to-end machine learning lifecycle
         icon: https://gitlab.eox.at/uploads/-/system/project/avatar/347/61449322.png
     - Minio:
-        href: https://minio.localhost/
+        href: https://minio.mlplatform/
         description: Browse data in the s3 storage
         icon: minio
     - MLflow Minio:
-        href: https://mlflow-minio.localhost/
+        href: https://mlflow-minio.mlplatform/
         description: Browse mlflow artifacts and models in the s3 storage
         icon: minio
 
   - Administration:
     - Grafana:
         description: Visualize data from Prometheus and Loki
-        href: https://grafana.localhost/
+        href: https://grafana.mlplatform/
         icon: grafana # downloaded automaticaly from https://github.com/walkxcode/dashboard-icons/
         widget:
           type: grafana
@@ -54,18 +54,18 @@ config:
           password: password
     - Prometheus:
         description: Collect and visualize metrics
-        href: https://prometheus.localhost/
+        href: https://prometheus.mlplatform/
         icon: prometheus # downloaded automaticaly from https://github.com/walkxcode/dashboard-icons/
         widget:
           type: prometheus
           url: http://kube-prometheus-stack-prometheus.kube-prometheus-stack.svc.cluster.local:9090
     - K8s Dashboard:
         description: Manage your Kubernetes cluster
-        href: https://dashboard.localhost/
+        href: https://dashboard.mlplatform/
         icon: kubernetes-dashboard # downloaded automaticaly from https://github.com/walkxcode/dashboard-icons/
     - ArgoCD:
         description: CD tool for Kubernetes
-        href: https://argocd.localhost/
+        href: https://argocd.mlplatform/
         icon: argocd # downloaded automaticaly from https://github.com/walkxcode/dashboard-icons/
 
   - Github:
@@ -112,12 +112,12 @@ ingress:
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       cert-manager.io/cluster-issuer: cluster-issuer
     hosts:
-    - host: homepage.localhost
+    - host: homepage.mlplatform
       paths:
       - path: /
         pathType: Prefix
     tls:
     - hosts:
-      - homepage.localhost
+      - homepage.mlplatform
       secretName: homepage-cert-secret
 

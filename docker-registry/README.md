@@ -1,14 +1,14 @@
 List repositories:
 ```
-https://docker-registry.localhost:11443/v2/_catalog
+https://docker-registry.mlplatform:11443/v2/_catalog
 ```
 List tags of a repositorh:
 ```
-https://docker-registry.localhost:11443/v2/<repo_name>/tags/list
+https://docker-registry.mlplatform:11443/v2/<repo_name>/tags/list
 ```
 Pull:
 ```
-docker pull docker-registry.localhost:11443/<repository>
+docker pull docker-registry.mlplatform:11443/<repository>
 ```
 Creating user name and secret:
 ```
@@ -21,10 +21,10 @@ secrets:
 ```
 Push to registry example:
 ```
-docker tag python:3.8.6-slim-buster  docker-registry.localhost:11443/python:latest
-docker push docker-registry.localhost:11443/python:latest
+docker tag python:3.8.6-slim-buster  docker-registry.mlplatform:11443/python:latest
+docker push docker-registry.mlplatform:11443/python:latest
 ```
 Pull from registry:
 ```
-docker pull docker-registry.localhost:11443/python:latest
+docker pull docker-registry.mlplatform:11443/python:latest
 ```

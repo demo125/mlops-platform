@@ -19,7 +19,7 @@ spec:
             name: minio
             port:
               number: 9001
-    host: minio.localhost
+    host: minio.mlplatform
   - http:
       paths:
       - pathType: Prefix
@@ -29,9 +29,9 @@ spec:
             name: minio
             port:
               number: 9000
-    host: minio-backend.localhost
+    host: minio-backend.mlplatform
   tls:
   - hosts:
-    - minio.localhost
-    - minio-backend.localhost
+    - minio.mlplatform
+    - minio-backend.mlplatform
     secretName: minio-cert-secret

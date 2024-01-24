@@ -17,9 +17,9 @@ spec:
             name: kubernetes-dashboard
             port:
               number: 443
-    host: dashboard.localhost
+    host: dashboard.mlplatform
   tls:
   - hosts:
-    - dashboard.localhost
+    - dashboard.mlplatform
     secretName: dashboard-cert-secret
 

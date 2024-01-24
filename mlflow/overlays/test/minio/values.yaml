@@ -9,7 +9,7 @@ persistence:
 ingress:
   enabled: false
   # ingressClassName: "nginx"
-  # hostname: mlflow-minio.localhost
+  # hostname: mlflow-minio.mlplatform
   # path: /
   # pathType: Prefix
   # tls: true

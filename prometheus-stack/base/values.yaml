@@ -7,11 +7,11 @@ prometheus:
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       cert-manager.io/cluster-issuer: cluster-issuer
     hosts:
-    - prometheus.localhost
+    - prometheus.mlplatform
     tls:
     - secretName: prometheus-kube-prometheus-stack-cert-secret
       hosts:
-      - prometheus.localhost
+      - prometheus.mlplatform
   prometheusSpec:
     securityContext:
       runAsUser: 0
@@ -47,11 +47,11 @@ grafana:
       cert-manager.io/cluster-issuer: cluster-issuer
     ingressClassName: nginx
     hosts:
-    - grafana.localhost
+    - grafana.mlplatform
     tls:
     - secretName: prometheus-kube-grafana-stack-cert-secret
       hosts:
-      - grafana.localhost
+      - grafana.mlplatform
   persistence:
     type: pvc
     enabled: true

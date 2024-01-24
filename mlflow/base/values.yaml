@@ -5,13 +5,13 @@ ingress:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     cert-manager.io/cluster-issuer: cluster-issuer
   hosts:
-  - host: mlflow.localhost
+  - host: mlflow.mlplatform
     paths:
     - path: /
       pathType: Prefix
   tls:
   - hosts:
-    - mlflow.localhost
+    - mlflow.mlplatform
     secretName: mlflow-cert-secret
 
 backendStore:

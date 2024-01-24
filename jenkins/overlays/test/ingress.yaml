@@ -18,8 +18,8 @@ spec:
             name: jenkins
             port:
               number: 443
-    host: jenkins.localhost
+    host: jenkins.mlplatform
   tls:
   - hosts:
-    - jenkins.localhost
+    - jenkins.mlplatform
     secretName: jenkins-cert-secret

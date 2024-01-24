@@ -18,8 +18,8 @@ spec:
             name: argocd-server
             port:
               number: 443
-    host: argocd.localhost
+    host: argocd.mlplatform
   tls:
   - hosts:
-    - argocd.localhost
+    - argocd.mlplatform
     secretName: argocd-cert-secret
