@@ -5,13 +5,13 @@ resources:
 - apps/argocd.yaml
 - apps/cert-manager.yaml
 - apps/dagster.yaml
-# - apps/homepage.yaml
+- apps/homepage.yaml
 - apps/ingress-nginx.yaml
-# - apps/jenkins.yaml
-# - apps/prometheus-stack.yaml
+- apps/jenkins.yaml
+- apps/prometheus-stack.yaml
 - apps/kubernetes-dashboard.yaml
-# - apps/loki.yaml
-# - apps/mlflow.yaml
-# - apps/minio.yaml
+- apps/loki.yaml
+- apps/mlflow.yaml
+- apps/minio.yaml
 - apps/sealed-secrets.yaml
 - apps/docker-registry.yaml
