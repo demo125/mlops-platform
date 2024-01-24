@@ -1,11 +1,3 @@
-
-# image:
-#   repository: registry
-#   tag: 2.8.1
-#   pullPolicy: IfNotPresent
-#   imagePullSecrets:
-#   - name: docker-registry-dockerio
-
 service:
   name: registry
 ingress:
