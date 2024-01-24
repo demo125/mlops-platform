@@ -5,6 +5,6 @@ metadata:
 data:
   MLFLOW_TRACKING_URI: "http://mlflow.mlflow.svc.cluster.local:5000"
   MLFLOW_S3_ENDPOINT_URL: "http://minio.mlflow.svc.cluster.local:9000"
-  #MLFLOW_TRACKING_INSECURE_TLS=True
-  #MLFLOW_S3_IGNORE_TLS=True
-  #SEED=42
+  MLFLOW_TRACKING_INSECURE_TLS: "True"
+  MLFLOW_S3_IGNORE_TLS: "True"
+  SEED: "42"
