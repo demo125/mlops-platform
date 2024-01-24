@@ -4,3 +4,4 @@ namespace: docker-registry
 resources:
 - ../../base
 - volumes.yaml
+- sealed-registry-secret.yaml
