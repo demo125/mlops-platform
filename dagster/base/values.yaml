@@ -35,7 +35,7 @@ dagster-user-deployments:
     - name: dagster-secret
     volumeMounts:
     - name: dagster-dvc-config-secret
-      mountPath: /home/vscode/example-project/.dvc/config
+      mountPath: /home/vscode/example-project/.dvc
     volumes:
     - name: dagster-dvc-config-secret
       secret:
