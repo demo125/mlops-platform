@@ -94,8 +94,8 @@ runLauncher:
         persistentVolumeClaim:
           claimName: dagster-executors-pvc
       - name: dagster-dvc-config-secret
-      secret:
-        secretName: dagster-dvc-config-secret
+        secret:
+          secretName: dagster-dvc-config-secret
       runK8sConfig:
         podSpecConfig:
           nodeSelector:
