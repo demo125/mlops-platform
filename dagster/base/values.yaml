@@ -79,13 +79,23 @@ runLauncher:
   type: K8sRunLauncher
   config:
     k8sRunLauncher:
+      envConfigMaps:
+      - name: dagster-config-map
+      envSecrets:
+      - name: dagster-secret
       volumeMounts:
       - name: dagster-executors-volume
-        mountPath: /opt/dagster/dagster_home
+        mountPath: /home/vscode/example-project/dagster_home
+      - name: dagster-dvc-config-secret
+        mountPath: /home/vscode/example-project/.dvc/config
+        subPath: config
       volumes:
       - name: dagster-executors-volume
         persistentVolumeClaim:
           claimName: dagster-executors-pvc
+      - name: dagster-dvc-config-secret
+      secret:
+        secretName: dagster-dvc-config-secret
       runK8sConfig:
         podSpecConfig:
           nodeSelector:
