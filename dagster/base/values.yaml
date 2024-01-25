@@ -91,6 +91,7 @@ runLauncher:
       volumeMounts:
       - name: dagster-executors-volume
         mountPath: /home/vscode/example-project/dagster_home
+        readOnly: false
       - name: dagster-dvc-config-secret
         mountPath: /home/vscode/example-project/.dvc/config
         subPath: config
