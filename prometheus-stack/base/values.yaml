@@ -64,3 +64,9 @@ grafana:
     runAsUser: 0
     runAsGroup: 0
     fsGroup: 0
+#https://github.com/prometheus-community/helm-charts/issues/418
+prometheusOperator:
+  tls:
+    enabled: false
+  admissionWebhooks:
+    enabled: false
