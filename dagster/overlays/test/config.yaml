@@ -8,3 +8,4 @@ data:
   MLFLOW_TRACKING_INSECURE_TLS: "True"
   MLFLOW_S3_IGNORE_TLS: "True"
   SEED: "42"
+  DAGSTER_HOME: /home/vscode/example-project/dagster_home

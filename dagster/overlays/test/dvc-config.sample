@@ -5,5 +5,5 @@
     endpointurl = http://minio.minio:9000
     ssl_verify = false
     region = us-east-2
-    access_key_id = 53RvcTS9gHo2Gn2B0NOS
-    secret_access_key= o64T0w098LWqreJyDSYUl42EDtexGktDtpVdukeG
+    access_key_id = ....
+    secret_access_key= ....
