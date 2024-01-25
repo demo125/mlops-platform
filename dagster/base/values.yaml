@@ -1,3 +1,8 @@
+global:
+  postgresqlSecretName: "dagster-postgresql-secret"
+  # The DAGSTER_HOME env var is set by default on all nodes from this value
+  dagsterHome: /home/vscode/example-project/dagster_home
+
 generatePostgresqlPasswordSecret: false
 postgresql:
   postgresqlUsername: testuser
@@ -48,7 +53,7 @@ dagsterWebserver:
     enabled: false
   volumeMounts:
   - name: dagster-webserver-volume
-    mountPath: /opt/dagster/dagster_home
+    mountPath: /home/vscode/example-project/dagster_home
   volumes:
   - name: dagster-webserver-volume
     persistentVolumeClaim:
@@ -60,7 +65,7 @@ dagsterDaemon:
   enabled: true
   volumeMounts:
   - name: dagster-daemon-volume
-    mountPath: /opt/dagster/dagster_home
+    mountPath: /home/vscode/example-project/dagster_home
   volumes:
   - name: dagster-daemon-volume
     persistentVolumeClaim:
