@@ -24,7 +24,7 @@ dagster-user-deployments:
   - name: "example-project"
     image:
       repository: k3d.registry/v2/example-project
-      tag: 36
+      tag: 36 # SED-ANCHOR-DAGSTER-VERSION
       pullPolicy: Always
     dagsterApiGrpcArgs:
     - "-d"
