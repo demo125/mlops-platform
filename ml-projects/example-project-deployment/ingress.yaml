@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-project-prod-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: example-project-prod-service
+            port:
+              number: 80
+              # name: https
+    host: example-project-prod.mlplatform
+  tls:
+  - hosts:
+    - example-project-prod.mlplatform
+    secretName: example-project-prod-cert-secret

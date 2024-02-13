@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-project-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example-project-prod
+  template:
+    metadata:
+      labels:
+        app: example-project-prod
+    spec:
+      imagePullSecrets:
+      - name: docker-registry-secret
+      containers:
+      - name: example-project-prod-container
+        image: k3d.registry/v2/example-project-prod:31 # SED-ANCHOR-APP-VERSION
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /docs
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /docs
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        envFrom:
+        - configMapRef:
+            name: example-project-prod-configmap
+        - secretRef:
+            name: example-project-prod-secrets
+        volumeMounts:
+        - name: example-project-prod-data
+          mountPath: /home/user/example-project-pord/predictions
+      volumes:
+      - name: example-project-prod-data
+        persistentVolumeClaim:
+          claimName: example-project-prod-pvc
