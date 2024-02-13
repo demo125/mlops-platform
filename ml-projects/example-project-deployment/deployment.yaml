@@ -46,7 +46,7 @@ spec:
             name: example-project-prod-secrets
         volumeMounts:
         - name: example-project-prod-data
-          mountPath: /home/user/example-project-pord/predictions
+          mountPath: /home/user/example-project-prod/predictions
       volumes:
       - name: example-project-prod-data
         persistentVolumeClaim:
