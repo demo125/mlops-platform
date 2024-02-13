@@ -15,3 +15,4 @@ resources:
 - apps/minio.yaml
 - apps/sealed-secrets.yaml
 - apps/docker-registry.yaml
+- apps/example-project-prod.yaml
