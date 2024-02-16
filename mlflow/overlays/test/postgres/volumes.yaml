@@ -3,11 +3,10 @@ kind: PersistentVolume
 metadata:
   name: mlflow-postgres-pv
 spec:
-  storageClassName: manual
   capacity:
     storage: 10Gi
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
     path: "/volume-data/mlflow/postgres"
@@ -22,9 +21,8 @@ metadata:
   name: mlflow-postgresql-pvc
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi
-  storageClassName: manual
   volumeName: mlflow-postgres-pv
