@@ -7,3 +7,4 @@ primary:
   persistence:
     enabled: true
     existingClaim: mlflow-postgresql-pvc
+    mountPath: /bitnami
