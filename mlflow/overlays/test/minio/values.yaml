@@ -5,7 +5,7 @@ auth:
 persistence:
   enabled: true
   existingClaim: mlflow-minio-pvc
-  mountPath: /bitnami/minio
+  mountPath: /bitnami
 
 ingress:
   enabled: false
