@@ -6,6 +6,9 @@ persistence:
   enabled: true
   existingClaim: mlflow-minio-pvc
 
+volumePermissions:
+  enabled: true
+
 ingress:
   enabled: false
   # ingressClassName: "nginx"
