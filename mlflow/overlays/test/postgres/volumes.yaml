@@ -7,6 +7,7 @@ spec:
     storage: 10Gi
   accessModes:
     - ReadWriteOnce
+  storageClassName: standard
   persistentVolumeReclaimPolicy: Retain
   hostPath:
     path: "/volume-data/mlflow/postgres"
@@ -22,6 +23,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: standard
   resources:
     requests:
       storage: 10Gi
