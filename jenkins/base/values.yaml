@@ -4,3 +4,5 @@ service:
 persistence:
   enabled: true
   existingClaim: jenkins-pvc
+volumePermissions:
+  enabled: true
